@@ -5,12 +5,12 @@ import logging
 
 class HTTPError(Exception):
     error_code = None
-    value = ''
+    value = ""
 
     def __init__(self, info=None):
         self.info = info
         if self.info:
-            logging.warning('<' + self.info + '>')
+            logging.warning("<" + self.info + ">")
 
 
 class HTTP404Error(HTTPError):
@@ -21,7 +21,7 @@ class HTTP404Error(HTTPError):
             HTTPError.__init__(self, info)
         else:
             HTTPError.__init__(self)
-        self.error_header = '404 NOT FOUND'
+        self.error_header = "404 NOT FOUND"
 
     def __str__(self):
         return "<404 NOT FOUND>"
@@ -42,7 +42,7 @@ class HTTP403Error(HTTPError):
             HTTPError.__init__(self, info)
         else:
             HTTPError.__init__(self)
-        self.error_header = '403 Forbidden'
+        self.error_header = "403 Forbidden"
 
     def __str__(self):
         return "<403 FORBBIDEN>"
@@ -63,7 +63,7 @@ class HTTP400Error(HTTPError):
             HTTPError.__init__(self, info)
         else:
             HTTPError.__init__(self)
-        self.error_header = '400 Bad Request'
+        self.error_header = "400 Bad Request"
 
     def __str__(self):
         return "<400 Bad Request>"
@@ -77,7 +77,7 @@ class HTTP302Error(HTTPError):
             HTTPError.__init__(self, info)
         else:
             HTTPError.__init__(self)
-        self.error_header = '302 Found'
+        self.error_header = "302 Found"
         self.target_url = target_url
 
     def __str__(self):

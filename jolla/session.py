@@ -3,19 +3,16 @@
 
 
 class buffer(object):
-
     def __init__(self):
         self._data = {}
 
 
 class SessionError(Exception):
-
     def __str__(self):
         return "<NO SUCH SESSION>"
 
 
 class session(buffer):
-
     def __str__(self):
         return "Jolla.jolla_sessionObject"
 
